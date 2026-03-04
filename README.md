@@ -10,6 +10,19 @@ Each lab scenario reproduces a common production incident such as CPU spikes, di
 
 ---
 
+## Lab Progress
+
+| Day | Scenario | Key Skills Practiced |
+|----|----|----|
+| Day 1 | Environment Setup & Nginx Installation | VM setup, Linux service installation |
+| Day 2 | CPU Spike Simulation | Process monitoring, CPU investigation |
+| Day 3 | Disk Space Exhaustion | Storage investigation, file analysis |
+| Day 4 | Memory Pressure Simulation | Memory monitoring, process analysis |
+| Day 5 | Network & DNS Troubleshooting | Interface debugging, DNS resolution |
+| Day 6 | Nginx Service Failure | Service management, log investigation, config validation |
+
+---
+
 # Lab Environment
 
 **Platform**
