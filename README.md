@@ -1,5 +1,11 @@
 # Infra NOC Home Lab
 
+A hands-on Infrastructure Operations lab that simulates real-world NOC incidents including CPU spikes, disk exhaustion, DNS failures, service outages, and port conflicts using Linux troubleshooting workflows.
+
+**Key Skills:** Linux Troubleshooting • Incident Investigation • Network Diagnostics • Service Recovery • Infrastructure Monitoring
+
+---
+
 ## Overview
 
 This project documents a hands-on **Infrastructure / NOC home lab** designed to simulate real-world operational incidents in a Linux environment.
@@ -7,19 +13,6 @@ This project documents a hands-on **Infrastructure / NOC home lab** designed to 
 The goal of this lab is to practice **monitoring, troubleshooting, and restoring system services** using structured investigation workflows similar to those used by Network Operations Centers (NOCs) and Infrastructure teams.
 
 Each lab scenario reproduces a common production incident such as CPU spikes, disk exhaustion, network failures, or service outages. Every scenario includes the investigation process, root cause identification, and recovery validation.
-
----
-
-## Lab Progress
-
-| Day | Scenario | Key Skills Practiced |
-|----|----|----|
-| Day 1 | Environment Setup & Nginx Installation | VM setup, Linux service installation |
-| Day 2 | CPU Spike Simulation | Process monitoring, CPU investigation |
-| Day 3 | Disk Space Exhaustion | Storage investigation, file analysis |
-| Day 4 | Memory Pressure Simulation | Memory monitoring, process analysis |
-| Day 5 | Network & DNS Troubleshooting | Interface debugging, DNS resolution |
-| Day 6 | Nginx Service Failure | Service management, log investigation, config validation |
 
 ---
 
@@ -50,94 +43,103 @@ Each lab scenario reproduces a common production incident such as CPU spikes, di
 
 ---
 
-# Lab Objectives
+# Lab Progress
 
-This project focuses on building practical skills in:
-
-- Linux system monitoring  
-- Infrastructure troubleshooting  
-- Network diagnostics  
-- DNS issue isolation  
-- Service outage recovery  
-- Incident investigation workflow  
-- Root cause analysis  
+| Day | Scenario | Lab File |
+|----|----|----|
+| Day 1 | System Health Baseline | `01-system-health-baseline.md` |
+| Day 2 | Nginx Service Incident | `02-nginx-service-incident.md` |
+| Day 3 | CPU Spike Simulation | `03-cpu-spike-simulation.md` |
+| Day 4 | Disk Space Exhaustion | `04-disk-space-exhaustion.md` |
+| Day 5 | Memory Pressure Simulation | `05-memory-exhaustion-simulation.md` |
+| Day 6 | Network Troubleshooting | `06-network-troubleshooting-simulation.md` |
+| Day 7 | Nginx Service Failure | `07-nginx-service-failure-simulation.md` |
+| Day 8 | Port Conflict Simulation | `08-port-conflict-simulation.md` |
 
 ---
 
 # Lab Scenarios
 
-## Day 1 – Environment Setup & Service Installation
-
-- Installed Ubuntu Server in VirtualBox  
-- Configured networking  
-- Installed and verified Nginx web server  
-- Performed initial system health validation  
+## Day 1 – System Health Baseline
+- Established baseline system health metrics
+- Checked CPU, memory, disk, and process statistics
+- Verified system resource availability before simulations
 
 ---
 
-## Day 2 – CPU Spike Simulation
-
-- Simulated high CPU usage using test processes  
-- Investigated CPU consumption using `top`  
-- Identified high-usage processes  
-- Restored system stability  
-
----
-
-## Day 3 – Disk Space Exhaustion
-
-- Created large files to simulate disk usage growth  
-- Investigated disk usage using `df` and `ls`  
-- Identified storage consumption  
-- Removed test files and restored disk capacity  
+## Day 2 – Nginx Service Incident
+- Installed and validated nginx service
+- Simulated a service outage
+- Investigated service state using `systemctl`
+- Restored service availability
 
 ---
 
-## Day 4 – Memory Pressure Simulation
-
-- Generated memory load using the `stress` tool  
-- Observed system slowdown under memory pressure  
-- Investigated process memory usage using `top`  
-- Confirmed system recovery after load removal  
+## Day 3 – CPU Spike Simulation
+- Simulated high CPU load using test processes
+- Identified high CPU usage using `top`
+- Investigated processes consuming CPU resources
+- Restored system stability
 
 ---
 
-## Day 5 – Network & DNS Troubleshooting
+## Day 4 – Disk Space Exhaustion
+- Created large files to simulate disk usage growth
+- Investigated disk usage using `df`
+- Identified storage consumption using file inspection
+- Removed test files to restore disk capacity
 
-Simulated multiple network incidents.
+---
+
+## Day 5 – Memory Pressure Simulation
+- Generated memory load using the `stress` tool
+- Observed system slowdown under memory pressure
+- Investigated memory consumption using monitoring tools
+- Confirmed system recovery after load removal
+
+---
+
+## Day 6 – Network Troubleshooting
+Simulated network related incidents including:
 
 ### Interface Failure
+- Disabled primary network interface
+- Observed connectivity failures
+- Investigated interface status using `ip`
+- Restored network connectivity
 
-- Disabled primary network interface  
-- Observed **Network is unreachable**  
-- Investigated using `ip a` and routing checks  
-- Restored interface connectivity  
-
-### DNS Failure
-
-- Modified DNS configuration using `resolvectl`  
-- Observed **Temporary failure in name resolution**  
-- Verified network connectivity vs DNS failure  
-- Restored DNS servers and validated resolution  
+### DNS Resolution Failure
+- Modified DNS configuration
+- Observed name resolution failure
+- Verified connectivity vs DNS resolution
+- Restored correct DNS servers
 
 ---
 
-## Day 6 – Service Outage Simulation (Nginx)
+## Day 7 – Nginx Service Failure
 
 ### Scenario 1 – Service Stopped
-
-- Stopped nginx service  
-- Observed service unreachable  
-- Investigated using `systemctl`  
-- Restored service and validated HTTP response  
+- Stopped nginx service
+- Observed service unreachable
+- Investigated service state using `systemctl`
+- Restarted service and validated availability
 
 ### Scenario 2 – Configuration Failure
+- Introduced invalid nginx directive
+- Detected configuration error using `nginx -t`
+- Observed service startup failure
+- Investigated logs using `journalctl`
+- Corrected configuration and restored service
 
-- Introduced invalid nginx directive  
-- Detected configuration error using `nginx -t`  
-- Observed service startup failure  
-- Investigated logs using `journalctl`  
-- Corrected configuration and restored service  
+---
+
+## Day 8 – Port Conflict Simulation
+- Stopped nginx service
+- Started a Python HTTP server occupying port 80
+- Attempted to start nginx and observed port binding failure
+- Identified port conflict using `ss`
+- Resolved conflict by stopping the conflicting service
+- Restarted nginx and validated service availability
 
 ---
 
@@ -147,14 +149,16 @@ Simulated multiple network incidents.
 infra-noc-home-lab/
 │
 ├── lab-setup/
-│   └── environment-setup.md
 │
 ├── lab-tasks/
-│   ├── 02-cpu-spike-simulation.md
-│   ├── 03-disk-exhaustion.md
-│   ├── 04-memory-pressure.md
+│   ├── 01-system-health-baseline.md
+│   ├── 02-nginx-service-incident.md
+│   ├── 03-cpu-spike-simulation.md
+│   ├── 04-disk-space-exhaustion.md
+│   ├── 05-memory-exhaustion-simulation.md
 │   ├── 06-network-troubleshooting-simulation.md
-│   └── 07-nginx-service-failure-simulation.md
+│   ├── 07-nginx-service-failure-simulation.md
+│   └── 08-port-conflict-simulation.md
 │
 └── README.md
 ```
@@ -176,18 +180,6 @@ Through these labs the following operational skills were practiced:
 
 ---
 
-# Future Lab Scenarios
-
-Planned extensions for this lab include:
-
-- Firewall rule misconfiguration  
-- Port conflict preventing service startup  
-- Log-based incident investigation  
-- Monitoring and alert simulation  
-- Application performance troubleshooting  
-
----
-
 # Purpose of This Project
 
 This project is intended to demonstrate **hands-on troubleshooting ability** for roles such as:
@@ -198,3 +190,4 @@ This project is intended to demonstrate **hands-on troubleshooting ability** for
 - Systems Operations Specialist  
 
 Each lab scenario reflects real operational incidents and focuses on structured diagnosis and recovery methods used in production environments.
+This project is continuously expanded with additional troubleshooting scenarios to simulate real-world NOC operational incidents.
