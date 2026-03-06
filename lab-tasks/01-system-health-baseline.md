@@ -12,7 +12,11 @@ uptime
 
 **Output:**
 - Uptime: 32 minutes  
-- Load Average: 0.02, 0.01, 0.00  
+- Load Average: 0.02, 0.01, 0.00
+
+### Uptime Baseline
+
+![Uptime Baseline](../assets/screenshots/day-1/day-1-uptime-baseline.png)
 
 **Interpretation:**
 The system has been running continuously since installation with no unexpected restarts.  
@@ -49,6 +53,10 @@ df -h
 Disk utilization is well below operational alert thresholds (80% warning, 90% critical).  
 No storage constraints detected at this time.
 
+### Memory and Disk Baseline
+
+![Memory and Disk Baseline](../assets/screenshots/day-1/day-1-memory-disk.png)
+
 ---
 
 ## Process & CPU State
@@ -63,6 +71,10 @@ top
 - Zombie: 0  
 - CPU Usage: 0.0%  
 - Top Process: PID 1 (systemd)
+
+### Process and CPU Baseline
+
+![Top Baseline](../assets/screenshots/day-1/day-1-top-baseline.png)
 
 **Interpretation:**
 System process state is stable with no abnormal or zombie processes detected.  
